@@ -28,18 +28,18 @@ configurations {
 }
 
 dependencies {
-    compileOnly 'io.kamax:hbox-server-api:0.0.13-2-gcf752f2'
+    compileOnly 'io.kamax:hbox-server-api:0.0.15'
     compileOnly files("lib/vboxj${modType}.jar")
     compile project(":hbox-vbox-${gradle.vboxVersion}-server-core")
 
     testCompile 'junit:junit:4.12'
-    testCompile 'io.kamax:hbox-server-api-test:0.0.13-2-gcf752f2'
+    testCompile 'io.kamax:hbox-server-api-test:0.0.15'
 }
 
 task testIntegration(type: Test) {
     description = "Integration tests which require a VirtualBox installation"
-    testClassesDir = sourceSets.testIntegration.output.classesDir
     classpath = sourceSets.testIntegration.runtimeClasspath
+    testClassesDirs = sourceSets.testIntegration.output.classesDirs
 }
 
 def binPath = Paths.get(getSysProp("server.build.bin.modules", project.buildDir.toPath().resolve('bin').toString()))

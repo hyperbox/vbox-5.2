@@ -15,15 +15,14 @@ subprojects {
     apply plugin: 'java'
 
     sourceCompatibility = 1.7
-    targetCompatibility = 1.7
+    targetCompatibility = 1.8
 
     group = 'io.kamax'
-//    version = gitVersion()
-    version = '0.0.1-SNAPSHOT'
+    version = gitVersion()
 
     repositories {
-        maven { url "https://kamax.io/maven/releases" }
-        maven { url "https://kamax.io/maven/snapshots" }
+        maven { url "https://maven.kamax.io/releases/" }
+        maven { url "https://maven.kamax.io/snapshots/" }
         mavenLocal()
         mavenCentral()
     }
